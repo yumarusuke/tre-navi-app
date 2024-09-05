@@ -44,44 +44,47 @@
           </div>
         </div>
       </nav>
-    <h1><button type="button" class="btn btn-primary">登録</button></h1>
-    <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">@</span>
-        <input type="text" class="form-control" placeholder="ニックネームはどうしますか" aria-label="Username" aria-describedby="basic-addon1">
-      </div>
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">@</span>
-        <input type="number" class="form-control" placeholder="何歳ですか？" aria-label="Username" aria-describedby="basic-addon1">
-      </div>  
-      <select class="form-select" aria-label="Default select example">
-            <option selected>どこから来ましたか</option>
-            <option value="1">azia</option>
-            <option value="2">eoualop</option>
-            <option value="3">south America</option>
-            <option value="4">nouth America</option>
-          </select>
-    <h4></h4>
-    <div class="form-floating mb-3">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">アレルギー</label>
-      </div>
-      <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-        <label for="floatingPassword">苦手なこと</label>
-      </div>
-      <input type="text">
-    <h5></h5>
-    <div class="input-group">
-      <span class="input-group-text">興味があることは何ですか</span>
-      <textarea class="form-control" aria-label="興味があることは何ですか"></textarea>
-    </div>
-    <h6></h6>  
-    <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="何日から" aria-label="Username">
-      <span class="input-group-text">@</span>
-      <input type="text" class="form-control" placeholder="何日まで" aria-label="Server">
-    </div>
-      
-    <a ryhref="/search" class="btton btn-prima"検索へ/a>
+      <form action="/create" method="post">
+        <h1><button type="submit" class="btn btn-primary">登録</button></h1>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">@</span>
+            <input name="nickname" type="text" class="form-control" placeholder="ニックネームはどうしますか" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">@</span>
+            <input name="age" type="number" class="form-control" placeholder="何歳ですか？" aria-label="Username" aria-describedby="basic-addon1">
+          </div>  
+          <select class="form-select" aria-label="Default select example">
+                <option selected>どこから来ましたか</option>
+                <option value="1">azia</option>
+                <option value="2">eoualop</option>
+                <option value="3">south America</option>
+                <option value="4">nouth America</option>
+              </select>
+        <h4></h4>
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">アレルギー</label>
+          </div>
+          <div class="form-floating">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">苦手なこと</label>
+          </div>
+          <input type="text">
+        <h5></h5>
+        <div class="input-group">
+          <span class="input-group-text">興味があることは何ですか</span>
+          <textarea class="form-control" aria-label="興味があることは何ですか"></textarea>
+        </div>
+        <h6></h6>  
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="何日から" aria-label="Username">
+          <span class="input-group-text">@</span>
+          <input type="text" class="form-control" placeholder="何日まで" aria-label="Server">
+        </div>
+          
+        <a ryhref="/search" class="btton btn-prima"検索へ/a>
+      </form>
+
 </body>
 </html>

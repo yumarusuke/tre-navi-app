@@ -2,7 +2,7 @@ from peewee import *
 
 db = SqliteDatabase('people.db')
 
-class Person(Model):
+class traveler(Model):
     name = CharField()
     age = IntegerField()
 
@@ -17,5 +17,4 @@ class Traveler(Model):
 
     class Meta:
         database = db # This model uses the "people.db" database.
-db.create_tables([Person])
-Person.create(name="ゆうや", age=11)
+db.create_tables([traveler])
