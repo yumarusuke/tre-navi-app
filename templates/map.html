@@ -1,16 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
 </head>
+
 <body>
     <h1>
         <div class="container-fluid">
             <a class="navbar-brand" href="#"></a></map></a>
+            <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+            <style>
+                #map {
+                    height: 500px;
+                    width: 70%;
+                    margin: 0 auto;
+                }
+            </style>
+            <div id="map"></div>
+
+            <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+            <script>
+                // 現在位置を取得する関数
+                function getCurrentPosition() {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(
+                            function (position) {
+                                console.log("Latitude: " + position.coords.latitude);
+                                console.log("Longitude: " + position.coords.longitude);
+                            },
+                            function (error) {
+                                console.log("Error: " + error.message);
+                            }
+                        );
+                    } else {
+                        console.log("Geolocation is not supported by this browser.");
+                    }
+                }
+                // 関数を呼び出す
+                getCurrentPosition();
+
+                // 地図の初期表示
+                var map = L.map('map').setView([39.70196447156899, 141.13575319162757], 13); // 東京駅の緯度経度
+
+                // 地図タイルの設定
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap contributors'
+                }).addTo(map);
+
+                // マーカーを追加
+                var marker = L.marker([39.70196447156899, 141.13575319162757]).addTo(map)
+                    .bindPopup('盛岡駅')
+                    .openPopup();
+
+            </script>
     </h1>
 </body>
+
 </html>
