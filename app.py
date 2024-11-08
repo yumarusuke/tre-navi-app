@@ -23,6 +23,11 @@ def map():
 def survey():
     return render_template("survey.html")
 
+@app.route("/plan")
+def plan():
+    return render_template("plan.html")
+
+
 @app.route("/create", methods=["POST"])
 def new_taveler():
     nickname = request.form["nickname"]
