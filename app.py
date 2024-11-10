@@ -27,6 +27,18 @@ def survey():
 def plan():
     return render_template("plan.html")
 
+@app.route("/volunteer")
+def volunteer():
+    return render_template("volunteer.html")
+
+@app.route("/list")
+def list():
+    return render_template("list.html")
+
+@app.route("/offer")
+def offer():
+    return render_template("offer.html")
+
 
 @app.route("/create", methods=["POST"])
 def new_taveler():

@@ -13,13 +13,66 @@
 </head>
 
 <body>
-    <h1>
+    <h4>
+
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">とれナビ</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">オススメ</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      行き方
+                    </a>
+                    
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">歩き</a></li>
+                      <div>
+                        <img src="/static/download.png" height="100" width="100px">
+                    </div>
+                      <li><a class="dropdown-item" href="#">電車</a></li>
+                      <div>
+                        <img src="/static/電車-アイコン.png" height="100" width="100px">
+                    </div> 
+                      <li><a class="dropdown-item" href="#">車</a></li>
+                      <div>
+                        <img src="/static/istockphoto-1273534607-612x612.jpeg" height="60" width="60px">
+                    </div>
+                    <br><br>  
+                      <li><a class="dropdown-item" href="#">飛行機</a></li>
+                      <div>
+                        <img src="/static/2059-600x600.jpeg" height="80" width="80px">
+                    </div>  
+                    </ul>
+
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link disabled">Disabled</a>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+
         <a class="navbar-brand" href="#"></a></map></a>
             <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
             <style>
                 #map {
-                    height: 500px;
-                    width: 70%;
+                    height: 700px;
+                    width: 90%;
                     margin: 0 auto;
                 }
             </style>
@@ -57,28 +110,12 @@
 
                 // マーカーを追加
                 var marker = L.marker([39.70196447156899, 141.13575319162757]).addTo(map)
-                    .bindPopup('盛岡駅')
+                    .bindPopup('赤れんが館')
                     .openPopup();
 
             </script>
 
-        <div>
-            <img src="/static/download.png" height="100" width="100px">
-        </div>
-
-        <div>
-            <img src="/static/電車-アイコン.png" height="100" width="100px">
-        </div>
-        
-        <div>
-            <img src="/static/istockphoto-1273534607-612x612.jpeg" height="60" width="60px">
-        </div>
-        
-        <div>
-            <img src="/static/2059-600x600.jpeg" height="80" width="80px">
-        </div>
-
-    </h1>
+   
 </body>
 
 </html>
