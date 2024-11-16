@@ -44,8 +44,15 @@ def offer():
 def new_taveler():
     nickname = request.form["nickname"]
     age = request.form["age"]
-    Traveler.create(name=nickname, age=age)
-    return redirect("/")
+    from_area = request.form["from_area"]
+    allergy = request.form["allergy"]
+    dislike = request.form["dislike"]
+    interest = request.form["interest"]
+    from_date = request.form["from_date"]
+    to_date = request.form["to_date"]
+
+    Traveler.create(name=nickname, age=age, from_area=from_area, allergy=allergy, dislike=dislike, interest=interest, from_date=from_date, to_date=to_date)
+    return redirect("/search")
 
 
 app.run(host="0.0.0.0",debug=True)
