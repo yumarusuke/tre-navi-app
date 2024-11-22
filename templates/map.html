@@ -101,16 +101,24 @@
                 getCurrentPosition();
 
                 // 地図の初期表示
-                var map = L.map('map').setView([39.70196447156899, 141.13575319162757], 13); // 東京駅の緯度経度
-
+                var map = L.map('map').setView([39.70196447156899, 141.13575319162757], 13); // 盛岡駅の緯度経度
                 // 地図タイルの設定
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     attribution: '© OpenStreetMap contributors'
                 }).addTo(map);
-
                 // マーカーを追加
                 var marker = L.marker([39.70196447156899, 141.13575319162757]).addTo(map)
                     .bindPopup('盛岡駅')
+                    .openPopup();
+                
+                // マーカーを追加
+                var marker = L.marker([39.70604549552384, 141.16079742048663]).addTo(map)
+                    .bindPopup('自宅')
+                    .openPopup();
+                
+                // マーカーを追加
+                var marker = L.marker([39.70650165586237, 141.1656163692733]).addTo(map)
+                    .bindPopup('附属小学校')
                     .openPopup();
 
             </script>

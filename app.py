@@ -4,6 +4,7 @@ from flask import request
 from flask import redirect
 
 from database import Traveler
+from database import Destination
 
 app = Flask(__name__)
 
@@ -13,11 +14,17 @@ def create():
 
 @app.route("/search")
 def search():
-    return render_template("search.html")
+    destinations = []
+    if request.args.get('search_word'):
+        destinations = Destination.select().where(
+            Destination.name.contains(request.args.get('search_word')))
+    return render_template("search.html", destinations=destinations)
 
-@app.route("/map")
-def map():
-    return render_template("map.html")
+@app.route("/map/<id>")
+def map(id):
+    destination = Destination.get(id=id)
+    print(destination.name)
+    return render_template("map.html", destination=destination)
 
 @app.route("/survey")
 def survey():

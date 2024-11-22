@@ -54,13 +54,16 @@
   </nav>
   <img src="/static/search_mushimegane.png" height="100px" width="100px">
   <h1>
-    <div class="input-group mb-3">
-      <span class="input-group-text" id="basic-addon1">検索</span>
-      <input type="text" class="form-control" placeholder="検索キーワード" aria-label="検索キーワード"
-        aria-describedby="basic-addon1">
-    </div>
-    
-    <p class="test"><button type="button" class="btn btn-info">検索</button></p>
+    <form action="/search" method="get">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">検索</span>
+        <input name="search_word" type="text" class="form-control" placeholder="検索キーワード" aria-label="検索キーワード"
+          aria-describedby="basic-addon1">
+      </div>
+      <p class="test">
+        <button type="submit" class="btn btn-info">検索</button>
+      </p>  
+    </form>
     <p class="test">
       <div>
         <img src="/static/ei-leaf.png" height="50px" width="50px">
@@ -94,6 +97,12 @@
     </div>
 
   </h1>
+  {% for i in destinations%}
+  <h3>{{i.name}}</h3>
+  <h4>{{i.address}}</h4>
+  <p>{{i.content}} {{i.parkingarea}} {{i.closeddays}} {{i.price}} {{i.cashless}}</p>
+  <hr>
+  {% endfor %}
   <a href="/map">
     マップへ
   </a>
