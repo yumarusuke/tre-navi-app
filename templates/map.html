@@ -112,13 +112,8 @@
                     .openPopup();
                 
                 // マーカーを追加
-                var marker = L.marker([39.70604549552384, 141.16079742048663]).addTo(map)
-                    .bindPopup('自宅')
-                    .openPopup();
-                
-                // マーカーを追加
-                var marker = L.marker([39.70650165586237, 141.1656163692733]).addTo(map)
-                    .bindPopup('附属小学校')
+                var marker = L.marker([{{destination.latitude}}, {{destination.longitude}}]).addTo(map)
+                    .bindPopup("{{destination.name}}")
                     .openPopup();
 
             </script>

@@ -40,3 +40,18 @@ class Destination(Model):
     class Meta:
         database = db # This model uses the "people.db" database.
 db.create_tables([Destination])
+
+class Survey(Model):
+    name = CharField()
+
+    class Meta:
+        database = db # This model uses the "people.db" database.
+db.create_tables([Survey])
+
+class Volunteer(Model):
+    name = CharField()
+
+    class Meta:
+        database = db # This model uses the "people.db" database.
+db.create_tables([Survey])
+

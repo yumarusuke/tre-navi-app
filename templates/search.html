@@ -98,7 +98,7 @@
 
   </h1>
   {% for i in destinations%}
-  <h3>{{i.name}}</h3>
+  <h3><a href="/map/{{i.id}}">{{i.name}}</a></h3>
   <h4>{{i.address}}</h4>
   <p>{{i.content}} {{i.parkingarea}} {{i.closeddays}} {{i.price}} {{i.cashless}}</p>
   <hr>
