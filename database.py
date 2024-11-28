@@ -36,6 +36,7 @@ class Destination(Model):
     cashless = CharField()
     latitude = FloatField()
     longitude = FloatField()
+    category= CharField()
 
     class Meta:
         database = db # This model uses the "people.db" database.

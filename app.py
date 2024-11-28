@@ -18,8 +18,25 @@ def search():
     if request.args.get('search_word'):
         destinations = Destination.select().where(
             Destination.name.contains(request.args.get('search_word')))
+        
+    if request.args.get('category') == "自然":
+        destinations = Destination.select().where(
+            Destination.category == '自然')
+        
+    if request.args.get('category') == "アクティビティ":
+        destinations = Destination.select().where(
+            Destination.category == 'アクティビティ')
+        
+        
+    if request.args.get('category') == "食べ物":
+        destinations = Destination.select().where(
+            Destination.category == '食べ物')
+        
+    if request.args.get('category') == "歴史":
+        destinations = Destination.select().where(
+            Destination.category == '歴史')
     return render_template("search.html", destinations=destinations)
-
+    
 @app.route("/map/<id>")
 def map(id):
     destination = Destination.get(id=id)
