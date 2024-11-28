@@ -15,7 +15,7 @@
 <body>
   <nav class="navbar navbar-expand-lg bg-info-subtle">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">とれナビ</a>
+      <a class="navbar-brand" href="#">ボラントリップ</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -96,6 +96,9 @@
       <img src="/static/城の無料アイコンその2.png" height="40px" width="40px">
     </div>
 
+    <br>
+
+
   </h1>
   {% for i in destinations%}
   <h3><a href="/map/{{i.id}}">{{i.name}}</a></h3>
@@ -103,12 +106,10 @@
   <p>{{i.content}} {{i.parkingarea}} {{i.closeddays}} {{i.price}} {{i.cashless}}</p>
   <hr>
   {% endfor %}
-  <a href="/map">
-    マップへ
-  </a>
-  <a href="/survey">
-    アンケートはこちら
-  </a>
+  <button class="btn btn-outline-primary" onclick="location.href='/plan'">プランへ</button>  
+  <button class="btn btn-outline-primary" onclick="location.href='/survey'">アンケート</button> 
+  
+
 </body>
 
 </html>

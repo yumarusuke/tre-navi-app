@@ -49,7 +49,8 @@ class Survey(Model):
 db.create_tables([Survey])
 
 class Volunteer(Model):
-    name = CharField()
+    interest = CharField()
+    want = CharField()
 
     class Meta:
         database = db # This model uses the "people.db" database.

@@ -46,6 +46,10 @@ def list():
 def offer():
     return render_template("offer.html")
 
+@app.route("/matching")
+def matching():
+    return render_template("matching.html")
+
 
 @app.route("/create", methods=["POST"])
 def new_taveler():
