@@ -47,15 +47,16 @@
   </nav> 
   <img src="/static/ボランティア.jpeg" height="150px" width="150px">
 <br>
+<form action="/create_volunteer" method="post">
   Q1
   <div class="form-check">
-    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+    <input name="interest" value="あり" class="form-check-input" type="radio" id="flexRadioDefault1">
     <label class="form-check-label" for="flexRadioDefault1">
       ボランティアについて興味がある
     </label>
   </div>
   <div class="form-check">
-    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+    <input name="interest" value="なし" class="form-check-input" type="radio"  id="flexRadioDefault2" checked>
     <label class="form-check-label" for="flexRadioDefault2">
       ボランティアについて興味がない
     </label>
@@ -65,12 +66,12 @@ Q2（Q1を興味があると答えてくれた方へ）
   </div>
   <div class="input-group">
     <span class="input-group-text">ボランティア、何がしたい？</span>
-    <textarea class="form-control" aria-label="With textarea"></textarea>
+    <textarea name="want" class="form-control" aria-label="With textarea"></textarea>
   </div>
   <br>
-  <button class="btn btn-outline-info" onclick="location.href='/list'">登録</button> 
+  <button type="submit" class="btn btn-outline-info" onclick="location.href='/list'">登録</button> 
   <br><br>
   <button class="btn btn-outline-light" onclick="location.href='/list'">興味があると答えた人</button> 
-  <button class="btn btn-outline-light" onclick="location.href='/search'">興味がないと答えた人</button>      
-</body>
-</html>
+  <button class="btn btn-outline-light" onclick="location.href='/search'">興味がないと答えた人</button>    
+</form>  
+<html>

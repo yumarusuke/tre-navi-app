@@ -104,24 +104,24 @@
                   })
                 }
                 // 関数を呼び出す
-                myPosition = getCurrentPosition();
-
-                // 地図の初期表示
-                var map = L.map('map').setView([myPosition[0], myPosition[1]], 13); // 盛岡駅の緯度経度
-                // 地図タイルの設定
-                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    attribution: '© OpenStreetMap contributors'
-                }).addTo(map);
-                // マーカーを追加
-                var marker = L.marker([myPosition[0], myPosition[1]]).addTo(map)
-                    .bindPopup('現在地')
-                    .openPopup();
-                
-                // マーカーを追加
-                var marker = L.marker([{{destination.latitude}}, {{destination.longitude}}]).addTo(map)
-                    .bindPopup("{{destination.name}}")
-                    .openPopup();
-
+                getCurrentPosition().then((position) => {
+                  console.log(position);
+                  // 地図の初期表示
+                  var map = L.map('map').setView([position[0], position[1]], 13); // 盛岡駅の緯度経度
+                  // 地図タイルの設定
+                  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                      attribution: '© OpenStreetMap contributors'
+                  }).addTo(map);
+                  // マーカーを追加
+                  var marker = L.marker([position[0], position[1]]).addTo(map)
+                      .bindPopup('現在地')
+                      .openPopup();
+                  
+                  // マーカーを追加
+                  var marker = L.marker([{{destination.latitude}}, {{destination.longitude}}]).addTo(map)
+                      .bindPopup("{{destination.name}}")
+                      .openPopup();
+                });
             </script>
 
    

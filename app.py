@@ -5,6 +5,7 @@ from flask import redirect
 
 from database import Traveler
 from database import Destination
+from database import Volunteer
 
 app = Flask(__name__)
 
@@ -82,5 +83,11 @@ def new_taveler():
     Traveler.create(name=nickname, age=age, from_area=from_area, allergy=allergy, dislike=dislike, interest=interest, from_date=from_date, to_date=to_date)
     return redirect("/search")
 
+@app.route("/create_volunteer", methods=["POST"])
+def new_volunteer():
+    interest = request.form["interest"]
+    want = request.form["want"]
+    Volunteer.create(interest=interest, want=want )
+    return redirect("/list")
 
 app.run(host="0.0.0.0",debug=True)

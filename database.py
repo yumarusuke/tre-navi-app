@@ -55,5 +55,5 @@ class Volunteer(Model):
 
     class Meta:
         database = db # This model uses the "people.db" database.
-db.create_tables([Survey])
+db.create_tables([Volunteer])
 
