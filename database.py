@@ -43,7 +43,8 @@ class Destination(Model):
 db.create_tables([Destination])
 
 class Survey(Model):
-    name = CharField()
+    impression = CharField()
+    why= CharField()
 
     class Meta:
         database = db # This model uses the "people.db" database.

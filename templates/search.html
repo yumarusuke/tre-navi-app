@@ -16,6 +16,7 @@
 <body>
   <nav class="navbar navbar-expand-lg bg-info-subtle">
     <div class="container-fluid">
+      <img src="/static/icon.png" width="30px" height="30px">
       <a class="navbar-brand" href="#">ボラントリップ</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -124,7 +125,10 @@
   {% for i in destinations%}
   <h3><a href="/map/{{i.id}}">{{i.name}}</a></h3>
   <h4>{{i.address}}</h4>
-  <p>{{i.content}} {{i.parkingarea}} {{i.closeddays}} {{i.price}} {{i.cashless}}</p>
+    <p>駐車場：{{i.parkingarea}}</p>
+     <p>営業日：{{i.closeddays}}</p>
+     <p>料金：{{i.price}}</p>
+     <p>クレジットカード：{{i.cashless}}</p>
   <hr>
   {% endfor %}
   <button class="btn btn-outline-primary" onclick="location.href='/plan'">プランへ</button>  

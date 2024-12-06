@@ -6,6 +6,7 @@ from flask import redirect
 from database import Traveler
 from database import Destination
 from database import Volunteer
+from database import Survey
 
 app = Flask(__name__)
 
@@ -89,5 +90,14 @@ def new_volunteer():
     want = request.form["want"]
     Volunteer.create(interest=interest, want=want )
     return redirect("/list")
+
+
+@app.route("/create_survey", methods=["POST"])
+def new_Survey():
+    impression = request.form["impression"]
+    why= request.form["why"]
+    Survey.create(impression=impression, why=why )
+    return redirect("/list")
+
 
 app.run(host="0.0.0.0",debug=True)
