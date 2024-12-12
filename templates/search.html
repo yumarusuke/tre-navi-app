@@ -55,86 +55,83 @@
     </div>
   </nav>
   <img src="/static/search_mushimegane.png" height="100px" width="100px">
-  <h1>
-    <form action="/search" method="get">
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">検索</span>
-        <input name="search_word" type="text" class="form-control" placeholder="検索キーワード" aria-label="検索キーワード"
-          aria-describedby="basic-addon1">
+  <form action="/search" method="get">
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1"><button type="submit" class="btn btn-info">検索</button></span>
+      <input name="search_word" type="text" class="form-control" placeholder="検索キーワード" aria-label="検索キーワード"
+        aria-describedby="basic-addon1">
+    </div>
+
+  </form>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-3">
+        <div class=" ">
+          <form action="/search" method="get">
+            <input name="category" value="自然" type="hidden" class="form-control" placeholder="検索キーワード"
+              aria-label="検索キーワード" aria-describedby="basic-addon1">
+            <button type="submit" class="btn btn-success">自然</button>
+          </form>
+        </div>
+        <div>
+          <img src="/static/川アイコン3.png" height="40px" width="40px">
+        </div>
+        <br>
+        <div>
+          <form action="/search" method="get">
+            <input name="category" value="アクティビティ" type="hidden" class="form-control" placeholder="検索キーワード"
+              aria-label="検索キーワード" aria-describedby="basic-addon1">
+            <button type="submit" class="btn btn-warning">遊び</button>
+          </form>
+        </div>
+        <div>
+          <img src="/static/バーベキューアイコン4.png" height="40px" width="40px">
+        </div>
+        <br>
+        <div>
+          <form action="/search" method="get">
+            <input name="category" value="食べ物" type="hidden" class="form-control" placeholder="検索キーワード"
+              aria-label="検索キーワード" aria-describedby="basic-addon1">
+            <button type="submit" class="btn btn-secondary">食事</button>
+          </form>
+        </div>
+        <div>
+          <img src="/static/フォークとナイフのお食事アイコン素材.png" height="40px" width="40px">
+        </div>
+        <br>
+        <div>
+          <form action="/search" method="get">
+            <input name="category" value="歴史" type="hidden" class="form-control" placeholder="検索キーワード"
+              aria-label="検索キーワード" aria-describedby="basic-addon1">
+            <button type="submit" class="btn btn-dark">歴史</button>
+          </form>
+        </div>
+        <div>
+          <img src="/static/城の無料アイコンその2.png" height="40px" width="40px">
+        </div>
+        <br>
       </div>
-      <p class="test">
-        <button type="submit" class="btn btn-info">検索</button>
-      </p>  
-    </form>
-    <p class="test">
-      <div>
-        <img src="/static/ei-leaf.png" height="50px" width="50px">
-      </div>  
-    <div>
-      <form action="/search" method="get">
-        <input name="category" value="自然" type="hidden" class="form-control" placeholder="検索キーワード" aria-label="検索キーワード"
-          aria-describedby="basic-addon1">
-        <button type="submit" class="btn btn-success">自然</button>
-      </form>
+      <div class="col-9">
+        <div class="">
+          {% for i in destinations%}
+          <h3><a href="/map/{{i.id}}">{{i.name}}</a></h3>
+          <h4>{{i.address}}</h4>
+          <p>駐車場：{{i.parkingarea}}</p>
+          <p>営業日：{{i.closeddays}}</p>
+          <p>料金：{{i.price}}</p>
+          <p>クレジットカード：{{i.cashless}}</p>
+          <hr>
+          {% endfor %}
+        </div>
+      </div>
     </div>
-    </p>
-    <div>
-      <img src="/static/川アイコン3.png" height="40px" width="40px">
-    </div>
+  </div>
 
+  <button class="btn btn-outline-primary" onclick="location.href='/plan'">プランへ</button>
+  <button class="btn btn-outline-primary" onclick="location.href='/survey'">アンケート</button>
+  <button class="btn btn-outline-primary" onclick="location.href='/volunteer'">ボランティア登録</button>
 
-    <div>
-      <form action="/search" method="get">
-        <input name="category" value="アクティビティ" type="hidden" class="form-control" placeholder="検索キーワード" aria-label="検索キーワード"
-          aria-describedby="basic-addon1">
-      <button type="submit" class="btn btn-warning">アクティビティ</button>
-      </form>
-    </div>
-    <div>
-      <img src="/static/バーベキューアイコン4.png" height="40px" width="40px">
-    </div>
-
-
-    <div>
-      <form action="/search" method="get">
-        <input name="category" value="食べ物" type="hidden" class="form-control" placeholder="検索キーワード" aria-label="検索キーワード"
-          aria-describedby="basic-addon1">
-      <button type="submit" class="btn btn-secondary">食べ物</button>
-      </form>
-    </div>
-    <div>
-      <img src="/static/フォークとナイフのお食事アイコン素材.png" height="40px" width="40px">
-    </div>
-
-    
-    <div>
-      <form action="/search" method="get">
-        <input name="category" value="歴史" type="hidden" class="form-control" placeholder="検索キーワード" aria-label="検索キーワード"
-          aria-describedby="basic-addon1">
-      <button type="submit" class="btn btn-dark">歴史</button>
-      </form>
-    </div>
-    <div>
-      <img src="/static/城の無料アイコンその2.png" height="40px" width="40px">
-    </div>
-
-    <br>
-
-
-  </h1>
-  {% for i in destinations%}
-  <h3><a href="/map/{{i.id}}">{{i.name}}</a></h3>
-  <h4>{{i.address}}</h4>
-    <p>駐車場：{{i.parkingarea}}</p>
-     <p>営業日：{{i.closeddays}}</p>
-     <p>料金：{{i.price}}</p>
-     <p>クレジットカード：{{i.cashless}}</p>
-  <hr>
-  {% endfor %}
-  <button class="btn btn-outline-primary" onclick="location.href='/plan'">プランへ</button>  
-  <button class="btn btn-outline-primary" onclick="location.href='/survey'">アンケート</button> 
-  <button class="btn btn-outline-primary" onclick="location.href='/volunteer'">ボランティア登録</button>  
-  
 
 </body>
 

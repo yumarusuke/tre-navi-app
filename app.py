@@ -7,6 +7,10 @@ from database import Traveler
 from database import Destination
 from database import Volunteer
 from database import Survey
+from database import Offer
+
+from maill import createMIMEText
+from maill import send_email
 
 app = Flask(__name__)
 
@@ -59,7 +63,8 @@ def volunteer():
 
 @app.route("/list")
 def list():
-    return render_template("list.html")
+    offers = Offer.select()
+    return render_template("list.html", offers=offers)
 
 @app.route("/offer")
 def offer():
@@ -87,8 +92,7 @@ def new_taveler():
 @app.route("/create_volunteer", methods=["POST"])
 def new_volunteer():
     interest = request.form["interest"]
-    want = request.form["want"]
-    Volunteer.create(interest=interest, want=want )
+    Volunteer.create(interest=interest )
     return redirect("/list")
 
 
@@ -99,5 +103,32 @@ def new_Survey():
     Survey.create(impression=impression, why=why )
     return redirect("/list")
 
+@app.route("/create_offer", methods=["POST"])
+def new_Offer():
+    want = request.form["want"]
+    where = request.form["where"]
+    when = request.form["when"]
+    gmaill = request.form["gmaill"]
+    Offer.create(want=want,where=where,when=when,gmaill=gmaill )
+    return redirect("/list")
+
+@app.route("/lets_go/<id>", methods=["POST"])
+def lets_go(id):
+    offer = Offer.get(id=id)
+    print("lets_go")
+    # メールの送り主
+    from_email = "vlontrip@gmail.com"
+    # メール送信先
+    to_email = "yubaseballfunya@gmail.com"
+    # メール件名とメール本文
+    subject = "【ボラントリップ】" + offer.want + " のやってみるボタンが押されました"
+    message = f"""
+どこ：{offer.where} 
+
+いつ：{offer.when}
+"""
+    mime = createMIMEText(from_email, to_email, message, subject)
+    send_email(mime)
+    return redirect("/list")
 
 app.run(host="0.0.0.0",debug=True)

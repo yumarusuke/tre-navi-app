@@ -52,9 +52,17 @@ db.create_tables([Survey])
 
 class Volunteer(Model):
     interest = CharField()
-    want = CharField()
 
     class Meta:
         database = db # This model uses the "people.db" database.
 db.create_tables([Volunteer])
 
+class Offer(Model):
+    want = CharField()
+    where = CharField()
+    when = CharField()
+    gmaill = CharField()
+
+    class Meta:
+        database = db # This model uses the "people.db" database.
+db.create_tables([Offer])
